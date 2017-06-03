@@ -35,6 +35,8 @@ if [ -z "$VPN_NETWORK_INTERFACE" ]; then
   VPN_NETWORK_INTERFACE="eth0"
 fi
 
+sleep 15 # give it some time to get up
+
 if [ `cat /sys/class/net/$VPN_NETWORK_INTERFACE/operstate` != "up" ]; then
   echo "Network interface '$VPN_NETWORK_INTERFACE' is not available. Aborting."
   exit 1
